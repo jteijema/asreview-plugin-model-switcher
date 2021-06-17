@@ -1,6 +1,6 @@
 # A new ASReview mode
 
-This plugin is currently in development.
+This plugin contains a base model and examples for a switching model. Since nb works very well in the first phase, it would be a waste not to use it. Contains 1 base switcher and 2 implementations.
 
 ## Functions
 This new model switches classifier at a set point.
