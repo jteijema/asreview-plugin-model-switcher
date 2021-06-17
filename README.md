@@ -6,3 +6,4 @@ This plugin is currently in development.
 This new model switches classifier at a set point.
 
 ## License
+Apache-2.0 License 
