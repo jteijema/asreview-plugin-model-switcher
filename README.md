@@ -8,7 +8,7 @@ This new model switches classifier at a set point.
 
 ## Getting started
 
-Install the new classifier with
+Install the new classifier with:
 
 ```bash
 pip install .
