@@ -24,8 +24,7 @@ python -m pip install git@github.com:JTeijema/ASReview-Model_Switcher.git
 ## Usage
 
 The new base switcher is defined in
-[`asreviewcontrib/models/model_switcher.py`](asreviewcontrib/models/model_switcher.py) 
-and can be used in a simulation.
+[`asreviewcontrib/models/model_switcher.py`](asreviewcontrib/models/model_switcher.py).
 
 The new classifier `SVM_LSTM` is defined in
 [`asreviewcontrib/models/SVM_LSTM.py`](asreviewcontrib/models/SVM_LSTM.py) 
