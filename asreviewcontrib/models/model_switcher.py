@@ -20,6 +20,8 @@ class base_switcher(BaseTrainClassifier):
     def fit(self, X, y):
         self._iteration += 1
 
+        if self._iteration == self._switchpoint : print("Switching Model")
+
         if (self._iteration < self._switchpoint): 
             self.log_message(type(self._model_1))
             return self._model_1.fit(X, y)
