@@ -35,11 +35,11 @@ The new classifier `NB_NN2L` is defined in
 and can be used in a simulation.
 
 ```bash
-asreview simulate example_data_file.csv -m SVM_LSTM
+asreview simulate example_data_file.csv -m SVM_LSTM -e doc2vec
 ```
 
 ```bash
-asreview simulate example_data_file.csv -m NB_NN2L
+asreview simulate example_data_file.csv -m NB_NN2L -e tfidf
 ```
 
 ## License
