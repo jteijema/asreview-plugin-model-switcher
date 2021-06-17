@@ -24,7 +24,7 @@ setup(
     ],
     entry_points={
         'asreview.models.classifiers': [
-            'nb_example = asreviewcontrib.models.nb_default_param:NaiveBayesDefaultParamsModel',
+            'SVM_LSTM = asreviewcontrib.models.SVM_LSTM:SVM_LSTM_Model',
         ],
         'asreview.models.feature_extraction': [
             # define feature_extraction algorithms
