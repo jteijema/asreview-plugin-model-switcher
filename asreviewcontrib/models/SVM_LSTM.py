@@ -1,16 +1,13 @@
-from sklearn.naive_bayes import MultinomialNB
+from asreviewcontrib.models.model_switcher import base_switcher
+from asreview.models.classifiers.svm import SVMClassifier
+from asreview.models.classifiers.lstm_base import LSTMBaseClassifier
 
-from asreview.models.classifiers.base import BaseTrainClassifier
 
-class SVM_LSTM_Model(BaseTrainClassifier):
-    """Naive Bayes classifier
-
-    The Naive Bayes classifier with the default SKLearn parameters.
-    """
+class SVM_LSTM_Model(base_switcher):
 
     name = "SVM_LSTM"
 
     def __init__(self):
-
         super().__init__()
-        self._model = MultinomialNB()
+        self._model_1 = SVMClassifier()
+        self._model_2 = LSTMBaseClassifier()
