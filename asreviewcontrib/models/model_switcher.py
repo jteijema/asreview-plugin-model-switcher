@@ -12,7 +12,7 @@ class base_switcher(BaseTrainClassifier):
                 ):
 
         self._iteration = 0
-        
+
         self._switchpoint = switchpoint
         self._model_1 = model_1
         self._model_2 = model_2
@@ -20,19 +20,23 @@ class base_switcher(BaseTrainClassifier):
     def fit(self, X, y):
         self._iteration += 1
 
-        if (self._iteration < self._switchpoint) : 
-            print("Iteration {}. Fitting {}".format(self._iteration, type(self._model_1)))
+        if (self._iteration < self._switchpoint): 
+            self.log_message(type(self._model_1))
             return self._model_1.fit(X, y)
 
         else: 
-            print("Iteration {}. Fitting {}".format(self._iteration, type(self._model_2)))
+            self.log_message(type(self._model_2))
             self._model_2.fit(X, y)
 
     def predict_proba(self, X):
 
-        if (self._iteration < self._switchpoint) : 
+        if (self._iteration < self._switchpoint): 
             return self._model_1.predict_proba(X)
 
         else: 
-            print("Start NN prediction phase")
             return self._model_2.predict_proba(X)
+
+    def log_message(self, 
+                    modeltype = None
+                    ):
+        print("Iteration {}, fitting {}".format(self._iteration, modeltype))
