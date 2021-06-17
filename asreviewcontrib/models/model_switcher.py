@@ -1,5 +1,8 @@
 from asreview.models.classifiers.base import BaseTrainClassifier
 
+#this stuff is temporary 
+from keras.backend import clear_session
+
 class base_switcher(BaseTrainClassifier):
 
     name = "base-switcher"
@@ -18,6 +21,9 @@ class base_switcher(BaseTrainClassifier):
         self._model_2 = model_2
 
     def fit(self, X, y):
+
+        clear_session()
+        
         self._iteration += 1
 
         if self._iteration == self._switchpoint : print("Switching Model")
