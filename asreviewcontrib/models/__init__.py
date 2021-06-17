@@ -1,1 +1,1 @@
-from asreviewcontrib.models.nb_default_param import NaiveBayesDefaultParamsModel
+from asreviewcontrib.models.SVM_LSTM import SVM_LSTM_Model
