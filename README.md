@@ -17,7 +17,7 @@ pip install .
 or
 
 ```bash
-python -m pip install git@github.com:JTeijema/ASReview-Model_Switcher.git
+python -m pip install git+https://github.com/JTeijema/ASReview-Model_Switcher.git
 ```
 
 
