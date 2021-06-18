@@ -12,5 +12,5 @@ class NB_NN2L_Model(base_switcher):
     def __init__(self):
         super().__init__()
         self._model_1 = NaiveBayesClassifier()
-        self._model_2 = OP_NN(dense_width=64, verbose=1, epochs=100)
-        #self._model_2 = NN2LayerClassifier()
+        #self._model_2 = OP_NN(dense_width=64, verbose=1, epochs=100)
+        self._model_2 = NN2LayerClassifier(verbose=1)
