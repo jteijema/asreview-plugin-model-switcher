@@ -50,15 +50,16 @@ class OP_NN(BaseTrainClassifier):
     name = "OP_NN"
 
     def __init__(self,
-                    dense_width=128,
+                    dense_width=64,
                     optimizer='rmsprop',
                     learn_rate=1.0,
                     regularization=0.01,
                     verbose=0,
-                    epochs=35,
-                    batch_size=32,
+                    epochs=50,
+                    batch_size=20,
                     shuffle=False,
-                    class_weight=30.0):
+                    class_weight=10.0,
+                    patience=6):
         """Initialize the 2-layer neural network model."""
         super(OP_NN, self).__init__()
         self.dense_width = int(dense_width)
@@ -70,6 +71,7 @@ class OP_NN(BaseTrainClassifier):
         self.batch_size = int(batch_size)
         self.shuffle = shuffle
         self.class_weight = class_weight
+        self.patience = patience
 
         self._model = None
         self.input_dim = None
@@ -88,13 +90,13 @@ class OP_NN(BaseTrainClassifier):
                 self.learn_rate, self.regularization, self.verbose)
             self._model = KerasClassifier(keras_model, verbose=self.verbose)
 
-        callback = callbacks.EarlyStopping(monitor='val_acc', patience=10, restore_best_weights=True)
+        callback = callbacks.EarlyStopping(monitor='val_acc', patience=self.patience, restore_best_weights=True)
         
         self._model.fit(
             X,
             y,
             validation_split=0.2,
-            batch_size=25,
+            batch_size=self.batch_size,
             epochs=self.epochs,
             shuffle=self.shuffle,
             callbacks=[callback],
@@ -113,15 +115,6 @@ def _create_dense_nn_model(vector_size=40,
                            learn_rate_mult=1.0,
                            regularization=0.01,
                            verbose=1):
-    """Return callable lstm model.
-
-    Returns
-    -------
-    callable:
-        A function that return the Keras Sklearn model when
-        called.
-
-    """
 
     # check is tensorflow is available
     _check_tensorflow()
