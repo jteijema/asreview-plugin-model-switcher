@@ -1,9 +1,7 @@
-# A new ASReview mode
+# A new ASReview model
+This model switches between 2 models during runtime. It can be useful for when later stages of data classification require different models.
 
-This plugin contains a base model and examples for a switching model. Since nb works very well in the first phase, it would be a waste not to use it. Contains 1 base switcher and 2 implementations.
-
-## Functions
-This new model switches classifier at a set point.
+This plugin contains a base model and examples for a switching model. Since nb works very well in the first phase. Contains 1 base switcher and 2 implementations.
 
 
 ## Getting started
@@ -34,6 +32,7 @@ The new classifier `NB_NN2L` is defined in
 [`asreviewcontrib/models/NB_NN2L.py`](asreviewcontrib/models/NB_NN2L.py) 
 and can be used in a simulation.
 
+The models can be used like this:
 ```bash
 asreview simulate example_data_file.csv -m SVM_LSTM -e doc2vec
 ```
@@ -41,6 +40,9 @@ asreview simulate example_data_file.csv -m SVM_LSTM -e doc2vec
 ```bash
 asreview simulate example_data_file.csv -m NB_NN2L -e tfidf
 ```
+
+### Switch point
+Currently the switch point is set manually in model_switcher.py, named ``switchpoint``.
 
 ## License
 Apache-2.0 License 
