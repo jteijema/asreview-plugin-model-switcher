@@ -20,6 +20,8 @@ try:
     from tensorflow.keras.layers import Dense
     from tensorflow.keras.models import Sequential
     from tensorflow.keras.wrappers.scikit_learn import KerasClassifier
+    from tensorflow.keras import regularizers
+    from tensorflow.keras import callbacks
 except ImportError:
     TF_AVAILABLE = False
 else:
@@ -30,8 +32,6 @@ else:
         logging.getLogger("tensorflow").setLevel(logging.ERROR)
 
 import scipy
-
-from tensorflow.keras import callbacks
 
 from asreview.models.classifiers.base import BaseTrainClassifier
 from asreview.models.classifiers.lstm_base import _get_optimizer
@@ -50,20 +50,24 @@ class OP_NN(BaseTrainClassifier):
     name = "OP_NN"
 
     def __init__(self,
-                 dense_width=64,
-                 optimizer='rmsprop',
-                 learn_rate=1.0,
-                 verbose=0,
-                 epochs=50,
-                 shuffle=False,
-                 class_weight=30.0):
+                    dense_width=128,
+                    optimizer='rmsprop',
+                    learn_rate=1.0,
+                    regularization=0.01,
+                    verbose=0,
+                    epochs=35,
+                    batch_size=32,
+                    shuffle=False,
+                    class_weight=30.0):
         """Initialize the 2-layer neural network model."""
         super(OP_NN, self).__init__()
         self.dense_width = int(dense_width)
         self.optimizer = optimizer
         self.learn_rate = learn_rate
+        self.regularization = regularization
         self.verbose = verbose
         self.epochs = int(epochs)
+        self.batch_size = int(batch_size)
         self.shuffle = shuffle
         self.class_weight = class_weight
 
@@ -81,22 +85,21 @@ class OP_NN(BaseTrainClassifier):
             self.input_dim = X.shape[1]
             keras_model = _create_dense_nn_model(
                 self.input_dim, self.dense_width, self.optimizer,
-                self.learn_rate, self.verbose)
+                self.learn_rate, self.regularization, self.verbose)
             self._model = KerasClassifier(keras_model, verbose=self.verbose)
 
-        callback = callbacks.EarlyStopping(monitor='acc', patience=10, restore_best_weights=True)
+        callback = callbacks.EarlyStopping(monitor='val_acc', patience=10, restore_best_weights=True)
         
-
         self._model.fit(
             X,
             y,
-            batch_size=24,
+            validation_split=0.2,
+            batch_size=25,
             epochs=self.epochs,
             shuffle=self.shuffle,
             callbacks=[callback],
             verbose=self.verbose,
-            #class_weight=_set_class_weight(self.class_weight))
-        )
+            class_weight=_set_class_weight(self.class_weight))
 
     def predict_proba(self, X):
         if scipy.sparse.issparse(X):
@@ -105,9 +108,10 @@ class OP_NN(BaseTrainClassifier):
 
 
 def _create_dense_nn_model(vector_size=40,
-                           dense_width=64,
+                           dense_width=128,
                            optimizer='rmsprop',
                            learn_rate_mult=1.0,
+                           regularization=0.01,
                            verbose=1):
     """Return callable lstm model.
 
@@ -129,19 +133,24 @@ def _create_dense_nn_model(vector_size=40,
             Dense(
                 dense_width*2,
                 input_dim=vector_size,
-                activation='relu',
-            ))
-
-        # add Dense layer with relu activation
-        model.add(
-            Dense(
-                dense_width,
+                kernel_regularizer=regularizers.l2(regularization),
+                activity_regularizer=regularizers.l1(regularization),
                 activation='relu',
             ))
 
         model.add(
             Dense(
                 dense_width,
+                kernel_regularizer=regularizers.l2(regularization),
+                activity_regularizer=regularizers.l1(regularization),
+                activation='relu',
+            ))
+
+        model.add(
+            Dense(
+                dense_width,
+                kernel_regularizer=regularizers.l2(regularization),
+                activity_regularizer=regularizers.l1(regularization),
                 activation='relu',
             ))
 
