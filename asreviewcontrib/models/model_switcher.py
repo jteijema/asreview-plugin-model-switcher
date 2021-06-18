@@ -1,8 +1,5 @@
 from asreview.models.classifiers.base import BaseTrainClassifier
 
-#this stuff is temporary 
-from keras.backend import clear_session
-
 class base_switcher(BaseTrainClassifier):
 
     name = "base-switcher"
@@ -12,9 +9,11 @@ class base_switcher(BaseTrainClassifier):
                 switchpoint=220,
                 model_1=None,
                 model_2=None,
+                save_switch_point=False
                 ):
 
         self._iteration = 0
+        self._save_switch_point = save_switch_point
 
         self._switchpoint = switchpoint
         self._model_1 = model_1
@@ -22,7 +21,9 @@ class base_switcher(BaseTrainClassifier):
 
     def fit(self, X, y):
 
-        clear_session()
+        if(self._save_switch_point and self._iteration==self.switchpoint): 
+            from numpy import savez
+            savez('../output/data-' + str(self._iteration), X=X, y=y)
         
         self._iteration += 1
 
