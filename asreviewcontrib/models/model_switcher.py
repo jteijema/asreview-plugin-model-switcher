@@ -6,7 +6,7 @@ class base_switcher(BaseTrainClassifier):
 
 
     def __init__(self,
-                switchpoint=220,
+                switchpoint=100,
                 model_1=None,
                 model_2=None,
                 save_switch_point=False

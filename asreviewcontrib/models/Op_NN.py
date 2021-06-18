@@ -20,7 +20,6 @@ try:
     from tensorflow.keras.layers import Dense
     from tensorflow.keras.models import Sequential
     from tensorflow.keras.wrappers.scikit_learn import KerasClassifier
-    from tensorflow.keras import regularizers
 except ImportError:
     TF_AVAILABLE = False
 else:
@@ -47,54 +46,14 @@ def _check_tensorflow():
 
 
 class OP_NN(BaseTrainClassifier):
-    """Dense neural network classifier.
-
-    Neural network with two hidden, dense layers of the same size.
-
-    Recommended feature extraction model is
-    :class:`asreview.models.feature_extraction.Doc2Vec`.
-
-    .. note::
-
-        This model requires ``tensorflow`` to be installed. Use ``pip install
-        tensorflow`` or install all optional ASReview dependencies with ``pip
-        install asreview[all]``
-
-    .. warning::
-
-        Might crash on some systems with limited memory in
-        combination with :class:`asreview.models.feature_extraction.Tfidf`.
-
-    Arguments
-    ---------
-    dense_width: int
-        Size of the dense layers.
-    optimizer: str
-        Name of the Keras optimizer.
-    learn_rate: float
-        Learning rate multiplier of the default learning rate.
-    regularization: float
-        Strength of the regularization on the weights and biases.
-    verbose: int
-        Verbosity of the model mirroring the values for Keras.
-    epochs: int
-        Number of epochs to train the neural network.
-    batch_size: int
-        Batch size used for the neural network.
-    shuffle: bool
-        Whether to shuffle the training data prior to training.
-    class_weight: float
-        Class weights for inclusions (1's).
-    """
 
     name = "OP_NN"
 
     def __init__(self,
-                 dense_width=128,
+                 dense_width=64,
                  optimizer='rmsprop',
                  learn_rate=1.0,
-                 regularization=0.01,
-                 verbose=1,
+                 verbose=0,
                  epochs=50,
                  shuffle=False,
                  class_weight=30.0):
@@ -103,7 +62,6 @@ class OP_NN(BaseTrainClassifier):
         self.dense_width = int(dense_width)
         self.optimizer = optimizer
         self.learn_rate = learn_rate
-        self.regularization = regularization
         self.verbose = verbose
         self.epochs = int(epochs)
         self.shuffle = shuffle
@@ -146,7 +104,7 @@ class OP_NN(BaseTrainClassifier):
 
 
 def _create_dense_nn_model(vector_size=40,
-                           dense_width=128,
+                           dense_width=64,
                            optimizer='rmsprop',
                            learn_rate_mult=1.0,
                            verbose=1):
@@ -168,12 +126,18 @@ def _create_dense_nn_model(vector_size=40,
 
         model.add(
             Dense(
-                dense_width,
+                dense_width*2,
                 input_dim=vector_size,
                 activation='relu',
             ))
 
         # add Dense layer with relu activation
+        model.add(
+            Dense(
+                dense_width,
+                activation='relu',
+            ))
+
         model.add(
             Dense(
                 dense_width,
