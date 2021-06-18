@@ -90,7 +90,7 @@ class OP_NN(BaseTrainClassifier):
         self._model.fit(
             X,
             y,
-            batch_size=int(self.input_dim/10),
+            batch_size=24,
             epochs=self.epochs,
             shuffle=self.shuffle,
             callbacks=[callback],
