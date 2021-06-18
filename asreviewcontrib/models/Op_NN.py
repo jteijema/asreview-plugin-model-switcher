@@ -95,7 +95,8 @@ class OP_NN(BaseTrainClassifier):
             shuffle=self.shuffle,
             callbacks=[callback],
             verbose=self.verbose,
-            class_weight=_set_class_weight(self.class_weight))
+            #class_weight=_set_class_weight(self.class_weight))
+        )
 
     def predict_proba(self, X):
         if scipy.sparse.issparse(X):
