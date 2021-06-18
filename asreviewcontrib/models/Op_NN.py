@@ -84,13 +84,13 @@ class OP_NN(BaseTrainClassifier):
                 self.learn_rate, self.verbose)
             self._model = KerasClassifier(keras_model, verbose=self.verbose)
 
-        callback = callbacks.EarlyStopping(monitor='acc', patience=3, restore_best_weights=True)
+        callback = callbacks.EarlyStopping(monitor='acc', patience=10, restore_best_weights=True)
         
 
         self._model.fit(
             X,
             y,
-            batch_size=int(self.input_dim/100),
+            batch_size=int(self.input_dim/10),
             epochs=self.epochs,
             shuffle=self.shuffle,
             callbacks=[callback],
