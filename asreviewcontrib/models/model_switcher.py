@@ -21,9 +21,9 @@ class base_switcher(BaseTrainClassifier):
 
     def fit(self, X, y):
 
-        if(self._save_switch_point and self._iteration==self.switchpoint): 
+        if(self._save_switch_point and self._iteration==self._switchpoint): 
             from numpy import savez
-            savez('../output/data-' + str(self._iteration), X=X, y=y)
+            savez('data-' + str(self._iteration), X=X, y=y)
         
         self._iteration += 1
 
