@@ -9,7 +9,7 @@ class base_switcher(BaseTrainClassifier):
                 switchpoint=100,
                 model_1=None,
                 model_2=None,
-                save_switch_point=False
+                save_switch_point=True
                 ):
 
         self._iteration = 0
