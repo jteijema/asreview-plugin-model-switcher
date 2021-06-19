@@ -40,6 +40,7 @@ class Bagging_SVMClassifier(BaseTrainClassifier):
         State of the RNG.
     """
     "Support Vector Machine SKLearn model."
+    
     name = "bagging_svm"
 
     def __init__(self,
