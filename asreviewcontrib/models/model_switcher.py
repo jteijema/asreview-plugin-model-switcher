@@ -9,7 +9,7 @@ class base_switcher(BaseTrainClassifier):
                 switchpoint=100,
                 model_1=None,
                 model_2=None,
-                save_switch_point=True
+                save_switch_point=False
                 ):
 
         print(
@@ -41,6 +41,7 @@ class base_switcher(BaseTrainClassifier):
 
         if(self._save_switch_point and self._iteration==self._switchpoint): 
             from numpy import savez
+
             savez('../output/data-' + str(self._iteration), X=X, y=y)
         
         self._iteration += 1
