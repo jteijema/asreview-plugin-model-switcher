@@ -12,6 +12,7 @@ class SVM_NN_Model(base_switcher):
 
     def __init__(self):
         super().__init__()
-        self._model_1 = SVMClassifier()
+        self._model_1 = Bagging_SVMClassifier()
+        #self._model_1 = SVMClassifier()
         #self._model_2 = OP_NN(verbose=0)
         self._model_2 = NN2LayerClassifier()
