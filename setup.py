@@ -2,12 +2,12 @@ from setuptools import setup
 from setuptools import find_namespace_packages
 
 setup(
-    name='asreview-template-model-extension',
-    version='0.1',
-    description='Example classifier extension',
-    url='https://github.com/asreview/asreview',
-    author='ASReview team',
-    author_email='asreview@uu.nl',
+    name='asreview-model-switcher-extention',
+    version='0.2',
+    description='The extention that adds models that switch at a certain point.',
+    url='https://github.com/JTeijema/ASReview-Model_Switcher',
+    author='ASReview team, Jelle Teijema',
+    author_email='j.j.teijema@gmail.com',
     classifiers=[
         'Development Status :: 4 - Beta',
         'License :: OSI Approved :: MIT License',
@@ -20,7 +20,9 @@ setup(
     python_requires='~=3.6',
     install_requires=[
         'sklearn',
-        'asreview>=0.13'
+        'asreview>=0.13',
+        'tensorflow',
+        'scipy'
     ],
     entry_points={
         'asreview.models.classifiers': [
@@ -37,7 +39,7 @@ setup(
         ]
     },
     project_urls={
-        'Bug Reports': 'https://github.com/asreview/asreview/issues',
-        'Source': 'https://github.com/asreview/asreview/',
+        'Bug Reports': 'https://github.com/JTeijema/ASReview-Model_Switcher/issues',
+        'Source': 'https://github.com/JTeijema/ASReview-Model_Switcher',
     },
 )
