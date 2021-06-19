@@ -25,6 +25,7 @@ setup(
     entry_points={
         'asreview.models.classifiers': [
             'SVM_NN = asreviewcontrib.models.SVM_NN:SVM_NN_Model',
+            'bagging_svm = asreviewcontrib.models.bagging_svm:Bagging_SVMClassifier',
         ],
         'asreview.models.feature_extraction': [
             # define feature_extraction algorithms
