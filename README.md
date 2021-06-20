@@ -25,7 +25,7 @@ The new base switcher is defined in
 [`asreviewcontrib/models/model_switcher.py`](asreviewcontrib/models/model_switcher.py).
 
 The new classifier `SVM_NN` is defined in
-[`asreviewcontrib/models/SVM_NN.py`](asreviewcontrib/models/SVM_NN.py) 
+[`asreviewcontrib/models/svm_nn.py`](asreviewcontrib/models/SVM_NN.py) 
 and can be used in a simulation.
 
 The models can be used like this:
