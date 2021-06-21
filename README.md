@@ -1,4 +1,4 @@
-# A new ASReview model
+# ASReview Model Switcher
 This model switches between 2 models during runtime. It can be useful for when later stages of data classification require different models.
 
 This plugin contains a base model and examples for a switching model, Contains a base switcher and its implementation.
