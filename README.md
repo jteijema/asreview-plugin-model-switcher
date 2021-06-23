@@ -3,6 +3,8 @@ This model switches between 2 models during runtime. It can be useful for when l
 
 This plugin contains a base model and examples for a switching model, Contains a base switcher and its implementation.
 
+The current switching model uses SVM and a neural network, and needs doc2vec as feature extractor.
+
 
 ## Getting started
 
