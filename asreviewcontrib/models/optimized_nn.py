@@ -22,6 +22,8 @@ from keras.wrappers.scikit_learn import KerasClassifier
 from tensorflow.keras import callbacks
 from tensorflow.keras import backend
 
+from math import ceil
+
 from asreview.models.classifiers.base import BaseTrainClassifier
 from asreview.utils import _set_class_weight
 
@@ -30,24 +32,31 @@ class OP_NN(BaseTrainClassifier):
 
     name = "OP_NN"
 
-    def __init__(self, patience=6):
+    def __init__(self, patience=5, min_delta = 0.05):
 
         """Initialize the 2-layer neural network model."""
         super(OP_NN, self).__init__()
         self.patience = patience
         self._model = None
+        self.min_delta = min_delta
 
     
 
     def fit(self, X, y):
+
  
         self._model = KerasClassifier(_create_dense_nn_model())
-        callback = callbacks.EarlyStopping(monitor='acc', patience=self.patience, restore_best_weights=True)
+        callback = callbacks.EarlyStopping(min_delta = self.min_delta, monitor='loss', patience=self.patience, restore_best_weights=True)
         
+        print("\n")
+        self._model.summary()
+
+        print("\n")
+
         self._model.fit(
             _format(X),
             y,
-            batch_size=1,
+            batch_size=ceil(X.shape[0]/20),
             epochs=100,
             shuffle=True,
             callbacks=[callback],
