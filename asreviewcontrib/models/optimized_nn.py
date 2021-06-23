@@ -32,7 +32,7 @@ class POWER_CNN(BaseTrainClassifier):
 
     name = "power_cnn"
 
-    def __init__(self, verbose = 1, patience=8, min_delta = 0.02):
+    def __init__(self, verbose = 1, patience=10, min_delta = 0.025):
 
         """Initialize the 2-layer neural network model."""
         super(POWER_CNN, self).__init__()
