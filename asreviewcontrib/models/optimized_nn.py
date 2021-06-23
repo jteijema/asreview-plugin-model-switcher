@@ -32,7 +32,7 @@ class POWER_CNN(BaseTrainClassifier):
 
     name = "power_cnn"
 
-    def __init__(self, verbose = 1, patience=5, min_delta = 0.05):
+    def __init__(self, verbose = 1, patience=8, min_delta = 0.02):
 
         """Initialize the 2-layer neural network model."""
         super(POWER_CNN, self).__init__()
@@ -65,11 +65,7 @@ class POWER_CNN(BaseTrainClassifier):
         self._model = KerasClassifier(_create_dense_nn_model())
         callback = callbacks.EarlyStopping(min_delta = self.min_delta, monitor='loss', patience=self.patience, restore_best_weights=True)
         
-        print("\n")
-        self._model.summary()
-
-        print("\n")
-
+        print("\n Fitting New Iteration:\n")
         self._model.fit(
             _format(X),
             y,
@@ -93,15 +89,15 @@ def _create_dense_nn_model():
 
         model = Sequential()
 
-        model.add(layers.Conv1D(input_shape = (40, 1), filters = 256, kernel_size = 3, padding = 'valid'))
+        model.add(layers.SeparableConv1D(input_shape = (40, 1), filters = 256, kernel_size = 3, padding = 'valid'))
         model.add(layers.Activation(activations.relu))
-        model.add(layers.Conv1D(filters = 256, kernel_size = 3, padding = 'valid'))
+        model.add(layers.SeparableConv1D(filters = 256, kernel_size = 3, padding = 'valid'))
         model.add(layers.Activation(activations.relu))
         model.add(layers.MaxPooling1D(pool_size = 2, padding = 'valid'))
 
-        model.add(layers.Conv1D(filters = 256, kernel_size = 3, padding = 'valid'))
+        model.add(layers.SeparableConv1D(filters = 256, kernel_size = 3, padding = 'valid'))
         model.add(layers.Activation(activations.relu))
-        model.add(layers.Conv1D(filters = 256, kernel_size = 3, padding = 'valid'))
+        model.add(layers.SeparableConv1D(filters = 256, kernel_size = 3, padding = 'valid'))
         model.add(layers.Activation(activations.relu))
         model.add(layers.MaxPooling1D(pool_size = 2, padding = 'valid'))
         model.add(layers.Dropout(rate=0.5))
