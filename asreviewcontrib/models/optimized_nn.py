@@ -28,18 +28,34 @@ from asreview.models.classifiers.base import BaseTrainClassifier
 from asreview.utils import _set_class_weight
 
 
-class OP_NN(BaseTrainClassifier):
+class POWER_CNN(BaseTrainClassifier):
 
-    name = "OP_NN"
+    name = "power_cnn"
 
     def __init__(self, patience=5, min_delta = 0.05):
 
         """Initialize the 2-layer neural network model."""
-        super(OP_NN, self).__init__()
+        super(POWER_CNN, self).__init__()
         self.patience = patience
         self._model = None
         self.min_delta = min_delta
 
+        print("""
+██████╗  ██████╗ ██╗    ██╗███████╗██████╗ 
+██╔══██╗██╔═══██╗██║    ██║██╔════╝██╔══██╗
+██████╔╝██║   ██║██║ █╗ ██║█████╗  ██████╔╝
+██╔═══╝ ██║   ██║██║███╗██║██╔══╝  ██╔══██╗
+██║     ╚██████╔╝╚███╔███╔╝███████╗██║  ██║
+╚═╝      ╚═════╝  ╚══╝╚══╝ ╚══════╝╚═╝  ╚═╝
+                                           
+ ██████╗███╗   ██╗███╗   ██╗               
+██╔════╝████╗  ██║████╗  ██║               
+██║     ██╔██╗ ██║██╔██╗ ██║               
+██║     ██║╚██╗██║██║╚██╗██║               
+╚██████╗██║ ╚████║██║ ╚████║               
+ ╚═════╝╚═╝  ╚═══╝╚═╝  ╚═══╝
+ 
+ """)
     
 
     def fit(self, X, y):

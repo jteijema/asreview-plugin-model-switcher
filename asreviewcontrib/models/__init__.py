@@ -1,3 +1,3 @@
 from asreviewcontrib.models.model_switcher import base_switcher
 from asreviewcontrib.models.svm_nn import SVM_NN_Model
-from asreviewcontrib.models.optimized_nn import OP_NN
+from asreviewcontrib.models.optimized_nn import POWER_CNN

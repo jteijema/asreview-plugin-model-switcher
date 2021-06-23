@@ -27,7 +27,7 @@ setup(
     entry_points={
         'asreview.models.classifiers': [
             'SVM_NN = asreviewcontrib.models.svm_nn:SVM_NN_Model',
-            'OP_NN = asreviewcontrib.models.optimized_nn:OP_NN',
+            'power_cnn = asreviewcontrib.models.optimized_nn:POWER_CNN',
         ],
         'asreview.models.feature_extraction': [
             # define feature_extraction algorithms
