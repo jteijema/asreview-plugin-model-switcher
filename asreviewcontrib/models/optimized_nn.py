@@ -32,13 +32,14 @@ class POWER_CNN(BaseTrainClassifier):
 
     name = "power_cnn"
 
-    def __init__(self, patience=5, min_delta = 0.05):
+    def __init__(self, verbose = 1, patience=5, min_delta = 0.05):
 
         """Initialize the 2-layer neural network model."""
         super(POWER_CNN, self).__init__()
         self.patience = patience
         self._model = None
         self.min_delta = min_delta
+        self.verbose = verbose
 
         print("""
 
@@ -49,12 +50,12 @@ class POWER_CNN(BaseTrainClassifier):
 ██║     ╚██████╔╝╚███╔███╔╝███████╗██║  ██║
 ╚═╝      ╚═════╝  ╚══╝╚══╝ ╚══════╝╚═╝  ╚═╝
                                            
- ██████╗███╗   ██╗███╗   ██╗               
-██╔════╝████╗  ██║████╗  ██║               
-██║     ██╔██╗ ██║██╔██╗ ██║               
-██║     ██║╚██╗██║██║╚██╗██║               
-╚██████╗██║ ╚████║██║ ╚████║               
- ╚═════╝╚═╝  ╚═══╝╚═╝  ╚═══╝
+        ██████╗███╗   ██╗███╗   ██╗        
+       ██╔════╝████╗  ██║████╗  ██║        
+       ██║     ██╔██╗ ██║██╔██╗ ██║        
+       ██║     ██║╚██╗██║██║╚██╗██║        
+       ╚██████╗██║ ╚████║██║ ╚████║        
+        ╚═════╝╚═╝  ╚═══╝╚═╝  ╚═══╝        
  
  """)
     
@@ -77,7 +78,7 @@ class POWER_CNN(BaseTrainClassifier):
             epochs=100,
             shuffle=True,
             callbacks=[callback],
-            verbose=1,)
+            verbose=self.verbose,)
 
     def predict_proba(self, X):
         return self._model.predict_proba(_format(X))

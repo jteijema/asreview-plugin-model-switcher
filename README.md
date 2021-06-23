@@ -40,3 +40,10 @@ Currently the switch point is set manually in model_switcher.py, named ``switchp
 
 ## License
 Apache-2.0 License 
+
+
+## other
+Currently, an optimized version of the ASReview NN is implemented [`asreviewcontrib/models/optimized_nn.py`](asreviewcontrib/models/optimized_nn.py) , usable with:
+```bash
+asreview simulate example_data_file.csv -m power_cnn -e doc2vec
+```
