@@ -3,13 +3,13 @@ from setuptools import find_namespace_packages
 
 setup(
     name='asreview-model-switcher-extention',
-    version='0.2',
+    version='0.3',
     description='The extention that adds models that switch at a certain set point.',
     url='https://github.com/JTeijema/ASReview-Model_Switcher',
     author='ASReview team, Jelle Teijema',
     author_email='j.j.teijema@gmail.com',
     classifiers=[
-        'Development Status :: 4 - Beta',
+        'Development Status :: 3 - Beta',
         'License :: OSI Approved :: Apache Software License',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.6',
@@ -27,6 +27,7 @@ setup(
     entry_points={
         'asreview.models.classifiers': [
             'SVM_NN = asreviewcontrib.models.svm_nn:SVM_NN_Model',
+            'OP_NN = asreviewcontrib.models.optimized_nn:OP_NN',
         ],
         'asreview.models.feature_extraction': [
             # define feature_extraction algorithms
