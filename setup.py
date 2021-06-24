@@ -28,6 +28,7 @@ setup(
         'asreview.models.classifiers': [
             'SVM_NN = asreviewcontrib.models.svm_nn:SVM_NN_Model',
             'power_cnn = asreviewcontrib.models.optimized_nn:POWER_CNN',
+            'power_lstm = asreviewcontrib.models.lstm_nn:POWER_LSTM',
         ],
         'asreview.models.feature_extraction': [
             # define feature_extraction algorithms

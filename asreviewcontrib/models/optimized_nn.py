@@ -34,7 +34,7 @@ class POWER_CNN(BaseTrainClassifier):
 
     def __init__(self, verbose = 1, patience=10, min_delta = 0.025):
 
-        """Initialize the 2-layer neural network model."""
+        """Initialize the conv neural network model."""
         super(POWER_CNN, self).__init__()
         self.patience = patience
         self._model = None
@@ -62,7 +62,7 @@ class POWER_CNN(BaseTrainClassifier):
     def fit(self, X, y):
 
  
-        self._model = KerasClassifier(_create_dense_nn_model())
+        self._model = KerasClassifier(_create_dense_nn_model(X.shape[1]))
         callback = callbacks.EarlyStopping(min_delta = self.min_delta, monitor='loss', patience=self.patience, restore_best_weights=True)
         
         print("\n Fitting New Iteration:\n")
@@ -81,7 +81,7 @@ class POWER_CNN(BaseTrainClassifier):
 def _format(X):
         return X.reshape((X.shape[0],X.shape[1],1))
 
-def _create_dense_nn_model():
+def _create_dense_nn_model(_size):
 
     def model_wrapper():
 
@@ -89,9 +89,9 @@ def _create_dense_nn_model():
 
         model = Sequential()
 
-        model.add(layers.SeparableConv1D(input_shape = (40, 1), filters = 256, kernel_size = 3, padding = 'valid'))
+        model.add(layers.SeparableConv1D(input_shape = (_size, 1), filters = 256, kernel_size = 5, padding = 'valid'))
         model.add(layers.Activation(activations.relu))
-        model.add(layers.SeparableConv1D(filters = 256, kernel_size = 3, padding = 'valid'))
+        model.add(layers.SeparableConv1D(filters = 256, kernel_size = 5, padding = 'valid'))
         model.add(layers.Activation(activations.relu))
         model.add(layers.MaxPooling1D(pool_size = 2, padding = 'valid'))
 
