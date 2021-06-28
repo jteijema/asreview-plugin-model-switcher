@@ -32,7 +32,7 @@ class POWER_CNN(BaseTrainClassifier):
 
     name = "power_cnn"
 
-    def __init__(self, verbose = 1, patience=10, min_delta = 0.025):
+    def __init__(self, verbose = 1, patience=15, min_delta = 0.025):
 
         """Initialize the conv neural network model."""
         super(POWER_CNN, self).__init__()
@@ -69,7 +69,7 @@ class POWER_CNN(BaseTrainClassifier):
         self._model.fit(
             _format(X),
             y,
-            batch_size=ceil(X.shape[0]/20),
+            batch_size=20,
             epochs=100,
             shuffle=True,
             callbacks=[callback],
