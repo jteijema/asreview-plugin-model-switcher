@@ -69,7 +69,7 @@ class POWER_CNN(BaseTrainClassifier):
         self._model.fit(
             _format(X),
             y,
-            batch_size=20,
+            batch_size=ceil(X.shape[0]/20),
             epochs=100,
             shuffle=True,
             callbacks=[callback],

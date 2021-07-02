@@ -67,10 +67,8 @@ def _create_dense_nn_model(_size):
 
         model = Sequential()
         
-        model.add(layers.Conv1D(input_shape = (_size, 1), filters = 128, kernel_size = 5, padding = 'valid'))
-        model.add(layers.MaxPooling1D(2))
-        model.add(layers.LSTM(_size,return_sequences = True, implementation=2))
-        model.add(layers.Dropout(0.7))
+        model.add(layers.LSTM(input_shape = (_size, 1), units = _size, return_sequences = True, implementation=2))
+        #model.add(layers.Dropout(0.25))
         model.add(layers.Activation('relu'))
         model.add(layers.LSTM(256,return_sequences = True))
         model.add(layers.Activation('relu'))
