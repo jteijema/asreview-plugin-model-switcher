@@ -26,15 +26,7 @@ class base_switcher(BaseTrainClassifier):
 ▄  ▀▀▀▀▄  █ ▄   █ ██     █    █   ▀  ██▀▀█ █▄▄▄    █▀▀▌  
  ▀▄▄▄▄▀   █  █  █ ▐█    █     █▄  ▄▀ █   █ █▄   ▄▀ █  █  
            █ █ █   ▐   ▀      ▀███▀      █ ▀███▀     █   
-            ▀ ▀                         ▀           ▀                  
-
-▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
-█                                                                                █
-█  I should probably take this out before I hand in my thesis...                 █
-█                                                                                █
-█  GitHub page:        https://github.com/JTeijema/ASReview-Model_Switcher       █
-█                                                                                █
-▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀                                                           
+            ▀ ▀                         ▀           ▀                                                              
 """
 )
 
