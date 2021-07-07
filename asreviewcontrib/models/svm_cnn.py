@@ -1,13 +1,13 @@
 from asreviewcontrib.models.model_switcher import base_switcher
 
 from asreview.models.classifiers.nn_2_layer import NN2LayerClassifier
-from asreviewcontrib.models.optimized_nn import POWER_CNN
+from asreviewcontrib.models.cnn import POWER_CNN
 from asreview.models.classifiers.svm import SVMClassifier
 
 
-class SVM_NN_Model(base_switcher):
+class SVM_CNN_Model(base_switcher):
 
-    name = "SVM_NN"
+    name = "svm_cnn"
 
     def __init__(self):
         super().__init__()
