@@ -1,6 +1,5 @@
 from asreviewcontrib.models.model_switcher import base_switcher
 
-from asreview.models.classifiers.nn_2_layer import NN2LayerClassifier
 from asreviewcontrib.models.cnn import POWER_CNN
 from asreview.models.classifiers.svm import SVMClassifier
 
