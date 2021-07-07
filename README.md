@@ -17,7 +17,7 @@ pip install .
 or
 
 ```bash
-python -m pip install git+https://github.com/JTeijema/ASReview-Model_Switcher.git
+python -m pip install git+https://github.com/JTeijema/asreview-plugin-model-switcher.git
 ```
 
 
@@ -43,7 +43,7 @@ Apache-2.0 License
 
 
 ## other
-Currently, an optimized version of the ASReview NN is implemented [`asreviewcontrib/models/optimized_nn.py`](asreviewcontrib/models/optimized_nn.py) , usable with:
+Currently, a new convolutional neural network is implemented [`asreviewcontrib/models/optimized_nn.py`](asreviewcontrib/models/optimized_nn.py) , usable with:
 ```bash
 asreview simulate example_data_file.csv -m power_cnn -e doc2vec
 ```
