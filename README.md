@@ -1,9 +1,9 @@
 # ASReview Model Switcher
-This model switches between 2 models during runtime. It can be useful for when later stages of data classification require different models.
+This repository contains a plugin for ASReview. This plugin adds a model that switches between two models during runtime. It can be useful for when later stages of data classification require different models.
 
-This plugin contains a base model and examples for a switching model, Contains a base switcher and its implementation.
+This plugin contains a base model and an implementation of a switching model.
 
-The current switching model uses SVM and a convolutional neural network, and needs doc2vec as feature extractor.
+The current implemented switching model uses SVM and a convolutional neural network, and needs doc2vec as feature extractor.
 
 
 ## Getting started
@@ -32,7 +32,7 @@ and can be used in a simulation.
 
 The models can be used like this:
 ```bash
-asreview simulate example_data_file.csv -m svm_cnn -e doc2vec
+asreview simulate benchmark:van_de_Schoot_2017 -m svm_cnn -e doc2vec -s test.h5
 ```
 
 ### Switch point
@@ -43,7 +43,7 @@ Apache-2.0 License
 
 
 ## other
-Currently, a new convolutional neural network is implemented [`asreviewcontrib/models/cnn.py`](asreviewcontrib/models/cnn.py) , usable with:
+A new convolutional neural network is implemented [`asreviewcontrib/models/cnn.py`](asreviewcontrib/models/cnn.py) , usable with:
 ```bash
-asreview simulate example_data_file.csv -m power_cnn -e doc2vec
+asreview simulate benchmark:van_de_Schoot_2017 -m power_cnn -e doc2vec
 ```
