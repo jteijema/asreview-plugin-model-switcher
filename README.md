@@ -1,5 +1,5 @@
 # ASReview Model Switcher
-This repository contains a plugin for ASReview. This plugin adds a model that switches between two models during runtime. It can be useful for when later stages of data classification require different models.
+This repository contains a plugin for [ASReview](https://github.com/asreview) ![logo](https://raw.githubusercontent.com/asreview/asreview-artwork/e2e6e5ea58a22077b116b9c3d2a15bc3fea585c7/SVGicons/IconELAS/ELASeyes24px24px.svg "ASReview"). This plugin adds a model that switches between two models during runtime. It can be useful for when later stages of data classification require different models.
 
 This plugin contains a base model and an implementation of a switching model.
 
@@ -36,7 +36,7 @@ asreview simulate benchmark:van_de_Schoot_2017 -m svm_cnn -e doc2vec -s test.h5
 ```
 
 ### Switch point
-Currently the switch point is set manually in model_switcher.py, named ``switchpoint``.
+Currently the switch point is set manually in model_switcher.py, named ``switchpoint``. It is set to 100 iterations.
 
 ## License
 Apache-2.0 License 
