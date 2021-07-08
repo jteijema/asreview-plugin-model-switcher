@@ -24,7 +24,6 @@
 	"keywords": [
 		"ASReview",
 		"text-classification",
-		"cnn-keras",
 		"active learning",
 		"machine learning"
 	],
