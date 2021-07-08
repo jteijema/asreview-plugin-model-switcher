@@ -26,17 +26,26 @@ python -m pip install git+https://github.com/JTeijema/asreview-plugin-model-swit
 The new base switcher is defined in
 [`asreviewcontrib/models/model_switcher.py`](asreviewcontrib/models/model_switcher.py).
 
-The new classifier `svm_cnn` is defined in
-[`asreviewcontrib/models/svm_cnn.py`](asreviewcontrib/models/svm_cnn.py) 
+The new classifier `svm_nn` is defined in
+[`asreviewcontrib/models/svm_nn.py`](asreviewcontrib/models/svm_nn.py) 
 and can be used in a simulation.
 
 The models can be used like this:
 ```bash
-asreview simulate benchmark:van_de_Schoot_2017 -m svm_cnn -e doc2vec -s test.h5
+asreview simulate benchmark:van_de_Schoot_2017 -m svm_nn -e doc2vec
+```
+
+### CNN
+If the CNN plugin is installed, it can be used in switching too, using the new classifier `svm_cnn`, defined in
+[`asreviewcontrib/models/svm_cnn.py`](asreviewcontrib/models/svm_cnn.py).
+
+The models can be used like this:
+```bash
+asreview simulate benchmark:van_de_Schoot_2017 -m svm_cnn -e doc2vec
 ```
 
 ### Switch point
-Currently the switch point is set manually in model_switcher.py, named ``switchpoint``. It is set to 100 iterations.
+Currently the switch point is set manually in model_switcher.py, named ``switchpoint``. It is set to switch after 100 iterations.
 
 ## License
 Apache-2.0 License 

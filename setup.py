@@ -2,10 +2,10 @@ from setuptools import setup
 from setuptools import find_namespace_packages
 
 setup(
-    name='asreview-model-switcher-extention',
+    name='asreview-plugin-model-switcher',
     version='0.3',
     description='The extention that adds models that switch at a certain set point.',
-    url='https://github.com/JTeijema/ASReview-Model_Switcher',
+    url='https://github.com/JTeijema/asreview-plugin-model-switcher/',
     author='ASReview team, Jelle Teijema',
     author_email='j.j.teijema@gmail.com',
     classifiers=[
@@ -26,6 +26,7 @@ setup(
     ],
     entry_points={
         'asreview.models.classifiers': [
+            'svm_nn = asreviewcontrib.models.svm_nn:SVM_NN_Model',
             'svm_cnn = asreviewcontrib.models.svm_cnn:SVM_CNN_Model',
             'power_cnn = asreviewcontrib.models.cnn:POWER_CNN',
         ],
@@ -40,7 +41,7 @@ setup(
         ]
     },
     project_urls={
-        'Bug Reports': 'https://github.com/JTeijema/ASReview-Model_Switcher/issues',
-        'Source': 'https://github.com/JTeijema/ASReview-Model_Switcher',
+        'Bug Reports': 'https://github.com/JTeijema/asreview-plugin-model-switcher/',
+        'Source': 'https://github.com/JTeijema/asreview-plugin-model-switcher/',
     },
 )
