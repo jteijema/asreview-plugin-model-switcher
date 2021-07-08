@@ -36,7 +36,7 @@ asreview simulate benchmark:van_de_Schoot_2017 -m svm_nn -e doc2vec
 ```
 
 ### CNN
-If the CNN plugin is installed, it can be used in switching too, using the new classifier `svm_cnn`, defined in
+If the [CNN plugin](https://github.com/JTeijema/asreview-plugin-model-cnn-17-layer) is installed, it can be used in switching too, using the new classifier `svm_cnn`, defined in
 [`asreviewcontrib/models/svm_cnn.py`](asreviewcontrib/models/svm_cnn.py).
 
 The models can be used like this:
