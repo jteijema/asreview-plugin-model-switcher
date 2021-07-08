@@ -40,10 +40,3 @@ Currently the switch point is set manually in model_switcher.py, named ``switchp
 
 ## License
 Apache-2.0 License 
-
-
-## other
-A new convolutional neural network is implemented [`asreviewcontrib/models/cnn.py`](asreviewcontrib/models/cnn.py) , usable with:
-```bash
-asreview simulate benchmark:van_de_Schoot_2017 -m power_cnn -e doc2vec
-```
