@@ -33,6 +33,6 @@
 		 	"identifier": "https://doi.org/10.5281/zenodo.3345592"
 		}
 	],
-	"license": "MIT",
+	"license": "Apache License 2.0",
 	"upload_type": "software"
 }
