@@ -19,6 +19,18 @@
 			"affiliation": "Department of Research and Data Management Services, Information Technology Services, Utrecht University, Utrecht, the Netherlands",
 			"orcid": "0000-0001-6366-2173",
 			"type": "Supervisor" 
+		},
+		{
+			"name": "Van de Schoot, Rens",
+			"affiliation": "Department of Methodology and Statistics, Faculty of Social and Behavioral Sciences, Utrecht University, Utrecht, the Netherlands",
+			"orcid": "0000-0001-7736-2091",
+			"type": "ProjectLeader" 
+		},
+		{
+			"name": "De Bruin, Jonathan",
+			"affiliation": "Department of Research and Data Management Services, Information Technology Services, Utrecht University, Utrecht, the Netherlands",
+			"orcid": "0000-0002-4297-0502",
+			"type": "DataManager" 
 		}
 	],
 	"keywords": [
