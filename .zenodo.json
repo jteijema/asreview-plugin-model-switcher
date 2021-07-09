@@ -31,6 +31,10 @@
 		{
 			"relation": "isSupplementTo",
 		 	"identifier": "https://doi.org/10.5281/zenodo.3345592"
+		},
+		{
+			"relation": "isRequiredBy",
+		 	"identifier": "https://doi.org/10.5281/zenodo.5082961"
 		}
 	],
 	"license": "Apache License 2.0",
