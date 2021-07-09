@@ -1,4 +1,7 @@
 # ASReview Model Switcher
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5084863.svg)](https://doi.org/10.5281/zenodo.5084863)
+
 This repository contains a plugin for [ASReview](https://github.com/asreview) ![logo](https://raw.githubusercontent.com/asreview/asreview-artwork/e2e6e5ea58a22077b116b9c3d2a15bc3fea585c7/SVGicons/IconELAS/ELASeyes24px24px.svg "ASReview"). This plugin adds a model that switches between two models during runtime. It can be useful for when later stages of data classification require different models.
 
 This plugin contains a base model and an implementation of a switching model.
