@@ -49,6 +49,6 @@
 		 	"identifier": "https://doi.org/10.5281/zenodo.5082961"
 		}
 	],
-	"license": "Apache License 2.0",
+	"license": "Apache-2.0",
 	"upload_type": "software"
 }
