@@ -4,9 +4,9 @@
 
 This repository contains a plugin for [ASReview](https://github.com/asreview) ![logo](https://raw.githubusercontent.com/asreview/asreview-artwork/e2e6e5ea58a22077b116b9c3d2a15bc3fea585c7/SVGicons/IconELAS/ELASeyes24px24px.svg "ASReview"). This plugin adds a model that switches between two models during runtime. It can be useful for when later stages of data classification require different models.
 
-This plugin contains a base model and an implementation of a switching model.
+This plugin contains a base model and an implementation of a switching model. The current implemented switching model uses SVM and a convolutional neural network, and needs doc2vec or [wide doc2vec](https://github.com/JTeijema/asreview-plugin-wide-doc2vec/) as feature extractor. 
 
-The current implemented switching model uses SVM and a convolutional neural network, and needs doc2vec as feature extractor.
+The point at which the classification model is set to 100 and is easily changed in the code. Future updates will make this a separate setting.
 
 
 ## Getting started
