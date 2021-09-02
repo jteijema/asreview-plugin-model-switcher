@@ -1,4 +1,5 @@
 from asreview.models.classifiers.base import BaseTrainClassifier
+import asreviewcontrib.models.config as cfg
 
 class base_switcher(BaseTrainClassifier):
 
@@ -6,10 +7,10 @@ class base_switcher(BaseTrainClassifier):
 
 
     def __init__(self,
-                switchpoint=100,
+                switchpoint=cfg.settings["switchpoint"],
                 model_1=None,
                 model_2=None,
-                save_switch_point=False
+                save_switch_point=cfg.settings["save_switch_point"]
                 ):
 
         print(
