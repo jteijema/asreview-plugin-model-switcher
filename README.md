@@ -6,7 +6,7 @@ This repository contains a plugin for [ASReview](https://github.com/asreview) ![
 
 This plugin contains a base model and an implementation of a switching model. The current implemented switching model uses SVM and a convolutional neural network, and needs doc2vec or [wide doc2vec](https://github.com/JTeijema/asreview-plugin-wide-doc2vec/) as feature extractor. 
 
-The point at which the classification model is set to 100 and is easily changed in the code. Future updates will make this a separate setting.
+The point at which the classification model is set to 100 and is easily changed in the code. This setting is found in the `asreviewcontrib.models.config` module.
 
 
 ## Getting started
