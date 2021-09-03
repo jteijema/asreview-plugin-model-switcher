@@ -16,8 +16,7 @@ Run install the new classifier with:
 ```bash
 pip install .
 ```
-
-or
+from the download folder or run the follow to install directly
 
 ```bash
 python -m pip install git+https://github.com/JTeijema/asreview-plugin-model-switcher.git
