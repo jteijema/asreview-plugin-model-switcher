@@ -11,7 +11,7 @@ The point at which the classification model is set to 100 and is easily changed 
 
 ## Getting started
 
-Run install.sh or install the new classifier with:
+Run install the new classifier with:
 
 ```bash
 pip install .
